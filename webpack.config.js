@@ -4,6 +4,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
+  targer:'web',
   //入口
   entry:path.join(__dirname,'src/index.js'),
   output:{
@@ -27,12 +28,21 @@ module.exports = {
         ]
       },
       {
+        test:/\.styl$/,
+        use:[
+          'style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
+      },
+      {
         test:/\.(gif|png|jpg|jpeg|svg)$/,
         use:[
           {
             loader:'url-loader',
             options:{
-              
+              limit:1021,
+              name:'[name]-aaa.[ext]'
             }
           }
 

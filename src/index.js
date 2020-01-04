@@ -2,6 +2,9 @@
 import Vue from 'vue'//把vue这个类库引用进来
 import App from './app.vue'
 
+import './assets/styles/test.css'
+import './assets/styles/test-stylus.styl'
+
 const root = document.createElement('div');
 document.body.appendChild(root);
 
