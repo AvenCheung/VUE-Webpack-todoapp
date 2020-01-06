@@ -3,7 +3,6 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-
 const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
@@ -60,15 +59,22 @@ const config = {
 }
 
 if (isDev) {
+  config.devtool = '#cheap-module-eval-source-map'
   config.devServer = {
     port: 8000,
     host: '0.0.0.0',
+    //提示错误与警告功能，
     overlay: {
-      errors: true,
+      errors: true
     },
+    hot:true
     //这个功能是当我们运行devServer的时候，会自动帮我们打开浏览器
-    open:true
-  }
+    // open:true
+  },
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  )
 }
 
 module.exports = config
