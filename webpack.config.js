@@ -1,9 +1,12 @@
 const path = require('path')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 //Vue-loader在15.*之后的版本都是 vue-loader的使用都是需要伴生 VueLoaderPlugin的(看下方注释)
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HTMLPlugin = require('html-webpack-plugin')
 
-module.exports = {
+const config = {
   targer:'web',
   //入口
   entry:path.join(__dirname,'src/index.js'),
@@ -45,12 +48,26 @@ module.exports = {
               name:'[name]-aaa.[ext]'
             }
           }
-
         ]
       }
     ]
+  },
+  plugins:[
+    new HTMLPlugin()
+  ]
+}
+
+if(isDev){
+  config.devSever = {
+    port:8000,
+    host:'0.0.0.0',
+    overlay:{
+      errors:true,
+    }
   }
 }
+
+module.exports = config
 
 
 
