@@ -2,6 +2,7 @@
 import Vue from 'vue'//把vue这个类库引用进来
 import App from './app.vue'
 
+// import './assets/styles/footer.styl'
 import './assets/styles/global.styl'
 
 const root = document.createElement('div');

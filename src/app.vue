@@ -1,14 +1,25 @@
 <template>
 <!-- vue组件必须有一个独立的外部节点包围。也就是说在template不能有两个并列的节点 -->
 <div id="app">
-  <div id="cover">
-
-  </div>
+  <div id="cover"></div>
+  <Header></Header>
+  <Footer></Footer>
+  <Todo></Todo>
 </div>
 </template>
 
 <script>
+import Header from './todo/header.vue'
+import Footer from './todo/footer.jsx'
+import Todo from './todo/todo.vue'
+
+
 export default {
+  components:{
+    Header,
+    Footer,
+    Todo
+  }
   
 }
 </script>

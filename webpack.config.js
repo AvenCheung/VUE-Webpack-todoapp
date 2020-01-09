@@ -30,6 +30,7 @@ const config = {
           'css-loader'
         ]
       },
+      //将小于1024d的图片转为base64，减少http请求
       {
         test: /\.(gif|png|jpg|jpeg|svg)$/,
         use: [{
