@@ -9,15 +9,15 @@
     />
     <Item 
       :todo="todo" 
-      v-for="todo in todos" 
+      v-for="todo in filteredTodos" 
       :key="todo.id" 
       @del="deleteTodo" 
     />
     <Tabs 
-      :filter="filter" 
-      :todos="todos" 
-      @toggle="toggleFilter" 
-      @clearAllCompleted="clearAllCompleted"
+    :filter="filter" 
+    :todos="todos" 
+    @toggle="toggleFilter" 
+    @clearAllCompleted="clearAllCompleted"
     />
   </section>
 </template>
