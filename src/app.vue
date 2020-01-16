@@ -38,7 +38,7 @@ export default {
   top 0
   right 0
   bottom 0
-  background-color #999
+  background-color rgba(0,0,0,0.3)
   opacity .9
   z-index -1
 }
