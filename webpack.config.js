@@ -100,7 +100,7 @@ if (isDev) {
   // config.devtool = '#cheap-module-eval-source-map'
   config.devServer = {
     port: 8000, //端口号
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     //提示错误与警告功能，
     overlay: {
       errors: true
