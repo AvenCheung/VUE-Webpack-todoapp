@@ -1,23 +1,23 @@
 <template>
   <section class="real-app">
     <input
-      type="text"
-      class="add-input"
-      autofocus="autofocus"
-      placeholder="接下来要做什么？"
-      @keyup.enter="addTodo"
+        type="text"
+        class="add-input"
+        autofocus="autofocus"
+        placeholder="接下来要做什么？"
+        @keyup.enter="addTodo"
     />
-    <Item 
-      :todo="todo" 
-      v-for="todo in filteredTodos" 
-      :key="todo.id" 
-      @del="deleteTodo" 
+    <Item
+        :todo="todo"
+        v-for="todo in filteredTodos"
+        :key="todo.id"
+        @del="deleteTodo"
     />
-    <Tabs 
-    :filter="filter" 
-    :todos="todos" 
-    @toggle="toggleFilter" 
-    @clearAllCompleted="clearAllCompleted"
+    <Tabs
+        :filter="filter"
+        :todos="todos"
+        @toggle="toggleFilter"
+        @clearAllCompleted="clearAllCompleted"
     />
   </section>
 </template>
@@ -25,6 +25,7 @@
 <script>
 import Item from "./item.vue";
 import Tabs from "./tabs.vue";
+
 let id = 0;
 export default {
   data() {
@@ -37,9 +38,9 @@ export default {
     Item,
     Tabs
   },
-  computed:{
-    filteredTodos(){
-      if(this.filter === 'all'){
+  computed: {
+    filteredTodos() {
+      if (this.filter === 'all') {
         return this.todos
       }
       const completed = this.filter === 'completed'
@@ -58,11 +59,11 @@ export default {
     deleteTodo(id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
     },
-    toggleFilter(state){
+    toggleFilter(state) {
       console.log(state);
       this.filter = state
     },
-    clearAllCompleted(){
+    clearAllCompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
     }
   }

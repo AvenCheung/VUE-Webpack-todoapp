@@ -20,7 +20,8 @@ const config = {
   },
   //webpack原生只支持js文件类型，只支持ES5语法，我们使用以.vue文件名结尾的文件时，需要为其指定loader
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
@@ -45,7 +46,7 @@ const config = {
           options: {
             limit: 1024,
             name: '[name]-aaa.[ext]',
-            outputPath:'assets/img/'
+            outputPath: 'assets/img/'
           }
         }]
       }
@@ -114,12 +115,12 @@ if (isDev) {
   config.module.rules.push({
     test: /\.styl/,
     use: [{
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          publicPath: './',
-          hmr: process.env.NODE_ENV === 'development'
-        }
-      },
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        publicPath: './',
+        hmr: process.env.NODE_ENV === 'development'
+      }
+    },
       'css-loader',
       {
         loader: 'postcss-loader',
@@ -131,13 +132,13 @@ if (isDev) {
     ]
   });
   config.plugins.push(
-    // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoEmitOnErrorsPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'styles.[chunkhash].[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false
-    })
+      // new webpack.HotModuleReplacementPlugin(),
+      // new webpack.NoEmitOnErrorsPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'styles.[chunkhash].[name].css',
+        chunkFilename: '[id].css',
+        ignoreOrder: false
+      })
   )
 }
 

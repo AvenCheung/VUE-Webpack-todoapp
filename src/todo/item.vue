@@ -1,8 +1,8 @@
 <template>
   <div :class="['todo-item',todo.completed?'completed': '']">
-    <input type="checkbox" class="toggle" v-model="todo.completed" />
-    <label>{{todo.content}}</label>
-    <button class="destory" @click="deleteTodo"></button>
+    <input type="checkbox" class="toggle" v-model="todo.completed"/>
+    <label>{{ todo.content }}</label>
+    <button class="destroy" @click="deleteTodo"></button>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     deleteTodo() {
-      this.$emit('del',this.todo.id)
+      this.$emit('del', this.todo.id)
     }
   }
 }
@@ -30,7 +30,7 @@ export default {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
   &:hover {
-    .destory:after {
+    .destroy:after {
       content: 'x';
     }
   }
